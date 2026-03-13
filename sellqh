@@ -1,0 +1,14 @@
+import random, time, os
+
+symbols = ['*', '+', 'x', '@']
+rows, cols = 20, 40
+
+for _ in range(10):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    sky = [[' ' for _ in range(cols)] for _ in range(rows)]
+    x, y = random.randint(5, cols-5), random.randint(2, rows//2)
+    for dx in [-1, 0, 1]:
+        for dy in [-1, 0, 1]:
+            sky[y+dy][x+dx] = random.choice(symbols)
+    print('\n'.join(''.join(r) for r in sky))
+    time.sleep(0.3)
